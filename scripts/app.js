@@ -3,7 +3,7 @@ var app = angular.module("createArticle",[]);
 app.controller('MainCtrl',function($scope,$compile){
   $scope.name = "World";
 
-  $scope.addField = function(){  jgjh
+  $scope.addField = function(){ 
     var html = '<p>Hi there</p>';
 
     var topScope = angular.element(document).scope();
