@@ -1,13 +1,15 @@
-var app = angular.module("createArticle",[]);
+// var app = angular.module('CreateArticleApp',[]);
 
-app.controller('MainCtrl',function($scope,$compile){
-  $scope.name = "World";
 
-  $scope.addField = function(){ 
-    var html = '<p>Hi there</p>';
+// app.controller('MainCtrl',function($scope,$compile){
 
-    var topScope = angular.element(document).scope();
-    var elem = $compile(html)(topScope);
-    angular.element(document.getElementById('example')).append(elem);
-  };
-});
+//   $scope.addField = function(){
+//     var html = '<div class = "box-container"></div>';
+//     var topScope = angular.element(document).scope();
+//     var elem = $compile(html)(topScope);
+//     angular.element(document.getElementByID('buildArticle-container')).append(elem);
+//   };
+
+  
+// });
+
