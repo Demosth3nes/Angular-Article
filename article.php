@@ -6,9 +6,9 @@
 	<script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
 </head>
 <body ng-controller = "MainCtrl">
-<button data-test>hi</button>
+<button data-additem>hi</button>
 	<form id = "example">
-<div contenteditable = "true">hi</div>
+
 <!-- 
 	<div class = "namer"  first = "Joe" last = "De-Brown"></div>
 	<div class = "namer" last = "Spartacus"></div> -->
@@ -21,6 +21,15 @@ var app = angular.module('app',[]);
 app.controller('MainCtrl',function($scope,$compile){
 $scope.count = 0;
 $scope.order = [];
+var idNumber = "id" + $scope.count;
+$scope.remove = function(){
+	CKEDITOR.instances.idNumber.destroy();
+	var element = CKEDITOR.document.getById( idNumber );
+						element.remove();
+	
+
+
+	}
 });
 	// app.directive('namer',function(){
 	// 	return{
@@ -34,7 +43,7 @@ $scope.order = [];
 	// 	}
 	// })
 
-	app.directive('test', function($compile){
+	app.directive('additem', function($compile){
     	return{ 
 	    	link:function(scope,element,attrs){
 
@@ -42,8 +51,11 @@ $scope.order = [];
 
 	    			var idNumber = "id" + (scope.count ++);
 	    			angular.element(document.getElementById('example'))
-	    				.append($compile('<div id = "'+idNumber+'" name = "'+idNumber+'"  contenteditable = "true" class  = "namer">Hi there</div>')(scope));
+	    				.append($compile('<div id = "'+idNumber+'" name = "'+idNumber+'"  contenteditable = "true" class  = "namer">Hi there</div>')(scope))
+	    				.append($compile('<button ng-click = "remove()" class = "remove">Remove item</button>')(scope));
+
 	    				CKEDITOR.inline( idNumber );
+	    				
 	    		});
 	    	}
      	};
